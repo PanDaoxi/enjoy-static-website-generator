@@ -4,7 +4,7 @@
 
 [下载站 (pandaoxi.github.io)](https://pandaoxi.github.io/enjoy-WebsiteMaker/)
 
-目前界面比较简陋（~~其实是因为我不会写网页~~），您可以根据自己的需要编辑 `template.html` 模板文件，只要包含以下的关键字即可：
+目前界面比较简陋（~~其实是因为我不会写网页啊 QWQ~~），您可以根据自己的需要编辑 `template.html` 模板文件，只要包含以下的关键字即可：
 
 ```html
 <!DOCTYPE html>
