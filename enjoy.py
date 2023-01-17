@@ -63,11 +63,14 @@ class MakeTree():
                 action = "下载"
             #===================================================================
             fileT += self.href % (i, modify, size, fileType, i, action)
+            current = absPath.replace("./files", ".")
+            if current == ".":
+                current += "\\"
             
             with open2(self.tl, "r", encoding="utf-8") as f:
                 wr = f.read() % (
                                 data["title"],
-                                absPath.replace(self.temp, "./"),
+                                current,
                                 fileT,
                                 cc,
                                 )
