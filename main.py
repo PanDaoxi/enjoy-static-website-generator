@@ -11,7 +11,7 @@ def copyAndMake():
     msgbox("完成。")
 
 def gotoWebsite():
-    system("start https://pandaoxi.github.io/enjoy-WebsiteMaker")
+    system("start https://pandaoxi.github.io/enjoy-static-website-generator")
 
 window = Tk()
 window.title("Enjoy 静态下载站生成器")
