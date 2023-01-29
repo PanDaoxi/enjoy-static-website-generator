@@ -2,7 +2,7 @@
 
 这是一款**静态下载网站**生成工具。意思就是说，您可以将生成好的静态网站发布在 `Github Pages` 或 `Netlify` 等静态网站托管平台上。这是一个在线的 DEMO：
 
-[下载站 (pandaoxi.github.io)](https://pandaoxi.github.io/enjoy-WebsiteMaker/)
+[下载站 (pandaoxi.github.io)](https://pandaoxi.github.io/enjoy-static-website-generator/)
 
 目前界面比较简陋（~~其实是因为我不会写网页啊 QWQ~~），可以从网上找喜欢的样式。您可以根据自己的需要编辑 `template.html` 模板文件，只要包含以下的关键字即可：
 
