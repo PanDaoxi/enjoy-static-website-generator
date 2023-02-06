@@ -10,8 +10,20 @@ class MakeTree():
     def __init__(self):
         self.temp = "./files/"
         self.tl = "./template.html"
-        self.href = "<tr><th><center>%s</center></th><th><center>%s</center></th><th><center>%s</center></th><th><center>%s</center></th><th><a href=\"%s\"><center>%s</center></a></th></tr>"        
-    
+        self.href = "<tr><th><center><i class=\"fa fa-%s\"></i> %s</center></th><th><center>%s</center></th><th><center>%s</center></th><th><center>%s</center></th><th><a href=\"%s\"><center>%s</center></a></th></tr>"        
+        self.extMap = {
+          "file-archive-o": ["zip", "rar", "7z", "wim", "gz"],
+          "file-audio-o": ["mp3", "wav", "wma", "m4a"],
+          "file-code-o": ["py", "cpp", "htm", "html", "js", "c", "h", "css", "less", "bat", "cmd", "sh"],
+          "file-excel-o": ["xls", "xlsx"],
+          "file-image-o": ["png", "jpg", "bmp", "gif", "jiff", "webp", "ico"],
+          "file-powerpoint-o": ["ppt", "pptx"],
+          "file-text-o": ["txt", "log", "md"],
+          "file-pdf-o": ["pdf",],
+          "file-video-o": ["mp4", "avi", "dat", "mpg", "mp4", "wmv", "rm", "mov", "mkv"],
+          "file-word-o": ["doc", "docx", "rtf"],
+          }
+        
     def __formatSize(self, size):
         char = ""
         if 0 <= size <= 1023:
@@ -53,16 +65,24 @@ class MakeTree():
             size = self.__formatSize(path.getsize(fp))
             modify = strftime("%Y-%m-%d %H:%M:%S", localtime(path.getmtime(fp)))
             download = fp
+            img = "file-o"
+            
             
             if path.isdir(fp):
                 fileType = "文件夹"
                 action = "进入"
                 size = "-"
+                img = "folder-o"
             else:
-                fileType = "%s 文件" % path.splitext(fp)[1]
+                ext = path.splitext(fp)[1].replace(".", "")
+                fileType = "%s 文件" % ext
                 action = "下载"
+                for ii in self.extMap.items():
+                    for j in ii[1]:
+                        if ext.upper() == j or ext.lower() == j:
+                            img = ii[0]
             #===================================================================
-            fileT += self.href % (i, modify, size, fileType, i, action)
+            fileT += self.href % (img, i, modify, size, fileType, i, action)
             current = absPath.replace("./files", ".")
             if current == ".":
                 current += "\\"
